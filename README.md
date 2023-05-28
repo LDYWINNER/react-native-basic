@@ -1,2 +1,2 @@
-# weather-app
-Learning React Native by Building a Weather-App
+# 1. weather app
+# 2. work hard travel hard app
