@@ -1,5 +1,19 @@
 import AppLoading from "expo-app-loading";
+import * as Font from "expo-font";
 import React, { useState } from "react";
+import { Ionicons } from "@expo/vector-icons";
+import { Asset } from "expo-asset";
+
+const loadFonts = (fonts) => fonts.map((font) => Font.loadAsync(font));
+
+const loadImages = (images) =>
+  images.map((image) => {
+    if (typeof image === "string") {
+      return Image.prefetch(image);
+    } else {
+      return Asset.loadAsync(image);
+    }
+  });
 
 export default function App() {
   const [ready, setReady] = useState(false);
@@ -7,7 +21,9 @@ export default function App() {
     setReady(true);
   };
   const startLoading = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 10000));
+    const images = loadAssets([require("./"), require("./")]);
+    const fonts = loadFonts([Ionicons.font]);
+    await Promise.all([...fonts, ...images]);
   };
   if (!ready) {
     return (
