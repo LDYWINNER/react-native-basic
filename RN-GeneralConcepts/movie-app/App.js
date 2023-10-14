@@ -21,7 +21,7 @@ export default function App() {
     setReady(true);
   };
   const startLoading = async () => {
-    const images = loadAssets([require("./"), require("./")]);
+    const images = loadImages([require("./"), require("./")]);
     const fonts = loadFonts([Ionicons.font]);
     await Promise.all([...fonts, ...images]);
   };
