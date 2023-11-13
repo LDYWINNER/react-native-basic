@@ -25,7 +25,6 @@ const Btn = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   background-color: ${colors.btnColor};
-  elevation: 5;
   box-shadow: 1px 1px 3px rgba(41, 30, 95, 0.2);
 `;
 
